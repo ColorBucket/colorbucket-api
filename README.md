@@ -18,3 +18,7 @@ Write in Node.js + express + es6 and with the main database repository being on 
   * cd to project folder
   * run `npm install`
   * run `npm start` to start the API server
+
+
+
+> <small>*Made with ?? by <a href="https://github.com/Agezao">Gabriel "Age"</a>*</small>
