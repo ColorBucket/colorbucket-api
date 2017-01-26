@@ -21,4 +21,4 @@ Write in Node.js + express + es6 and with the main database repository being on 
 
 
 
-> <small>*Made with ?? by <a href="https://github.com/Agezao">Gabriel "Age"</a>*</small>
+> <small>*Made wwith ❤️ by <a href="https://github.com/Agezao">Gabriel "Age"</a>*</small>
