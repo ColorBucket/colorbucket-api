@@ -7,7 +7,7 @@ import APIError from '../helpers/APIError';
  * User Schema
  */
 const UserSchema = new mongoose.Schema({
-  name: { type: 'String', required: true },
+  name: { type: 'String' },
   username: { type: 'String', required: true },
   email:  { type: 'String', required: true, unique: true },
   password: { type: 'String', required: true },
