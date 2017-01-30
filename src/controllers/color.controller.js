@@ -14,7 +14,7 @@ const _responseFactory = new ResponseFactory();
  */
 function create(req, res, next) {
   const vm = new Model({
-    userId: req.decoded._id,
+    userId: req.user._id,
     color: req.body.color,
     name: req.body.name
   });
@@ -30,7 +30,7 @@ function create(req, res, next) {
  */
 function list(req, res, next) {
   
-  Model.find({ userId: req.decoded._id })
+  Model.find({ userId: req.user._id })
     .then(objects => res.json(_responseFactory.sucess(objects)))
     .catch(e => next(e));
 }
@@ -43,9 +43,10 @@ function list(req, res, next) {
 function remove(req, res, next) {
   const color = req.body.color;
 
-  color.remove()
-    .then(deletedColor => res.json(_responseFactory.sucess(deletedColor)))
-    .catch(e => next(e));
+  Model.find({ userId: req.user._id, color: color })
+       .remove()
+       .then(deletedColor => res.json(_responseFactory.sucess(deletedColor)))
+       .catch(e => next(e));
 }
 
 export default { create, list, remove };
