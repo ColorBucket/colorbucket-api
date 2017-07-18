@@ -23,11 +23,9 @@ ColorSchema.statics = {
   get(params) {
     if(typeof(params) === 'object')
       return this.find(params)
-        .populate({path : 'user', select :'-password-created'})
         .exec();
         
     return this.findById(params)
-      .populate({path : 'user', select :'-password-created'})
       .exec();
   },
 

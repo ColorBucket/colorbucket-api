@@ -14,6 +14,17 @@ class ColorBusiness {
         return Color.get(params);
     };
 
+    getPopulated(params) {
+        if(typeof(params) === 'object')
+          return Color.find(params)
+            .populate({path : 'user', select :'-password'})
+            .exec();
+            
+        return Color.findById(params)
+          .populate({path : 'user', select :'-password'})
+          .exec();
+    };
+
     update(vm) {
         return Color.update({_id: vm._id}, {$set: { name: vm.name }});
     };

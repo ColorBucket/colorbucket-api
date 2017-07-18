@@ -1,11 +1,13 @@
 'use srict';
 
 const UserBusiness = require('../business/user.business'),
+      ColorBusiness = require('../business/color.business'),
       TokenBusiness = require('../business/token.business'),
       ResponseFactory = require('../factories/response.factory');
 
 const _responseFactory = new ResponseFactory();
 const _userBusiness = new UserBusiness();
+const _colorBusiness = new ColorBusiness();
 
 /**
  * Get user
@@ -76,4 +78,16 @@ function remove(req, res, next) {
     .catch(e => next(e));
 }
 
-module.exports = { get, create, update, remove };
+/**
+ * Get user's colors
+ * @returns {Colors}
+ */
+function getColors(req, res, next) {
+  _colorBusiness.get({user: req.params.userId})
+    .then(colors => {
+      res.json(_responseFactory.success(colors));
+    })
+    .catch(e => next(e));
+}
+
+module.exports = { get, getColors, create, update, remove };

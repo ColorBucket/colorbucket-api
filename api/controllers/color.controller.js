@@ -11,7 +11,7 @@ const _colorBusiness = new ColorBusiness();
  * @returns {Color}
  */
 function get(req, res, next) {
-  _colorBusiness.get(req.query._id)
+  _colorBusiness.getPopulated(req.query._id)
     .then(color => {
       res.json(_responseFactory.success(color));
     })
@@ -52,7 +52,7 @@ function update(req, res, next) {
 
   _colorBusiness.get(req.body._id)
     .then(savedColor => {
-      if(savedColor.user._id != req.decoded._id)
+      if(savedColor.user != req.decoded._id)
         return res.json(_responseFactory.fail(-1, "not your color"));
 
       _colorBusiness.update(color)
@@ -71,7 +71,7 @@ function update(req, res, next) {
 function remove(req, res, next) {
   _colorBusiness.get(req.body._id)
     .then(color => {
-      if(color.user._id != req.decoded._id)
+      if(color.user != req.decoded._id)
         return res.json(_responseFactory.fail(-1, "not your color"));
 
       _colorBusiness.remove(req.body._id)

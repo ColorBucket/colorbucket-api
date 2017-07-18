@@ -15,4 +15,12 @@ router.route('/')
   /** DELETE /api/users - Delete user */
   .delete(userCtrl.remove);
 
+router.route('/colors')
+  /** GET /api/users/colors - Get user colors */
+  .get(userCtrl.getColors);
+
+router.route('/:userId/colors')
+  /** GET /api/users/:userId/colors - Get specific user colors */
+  .get(userCtrl.getColors);
+
 module.exports = router;
