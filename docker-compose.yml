@@ -1,8 +1,0 @@
-version: '2'
-services:
-  api:
-    image: colorbucket/colorbucket:colorbucket-api
-    build: .
-    network_mode: "host"
-    ports:
-      - "3003:3003"
