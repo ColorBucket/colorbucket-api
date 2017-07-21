@@ -14,7 +14,7 @@ const _colorBusiness = new ColorBusiness();
  * @returns {User}
  */
 function get(req, res, next) {
-  _userBusiness.get(req.decoded._id)
+  _userBusiness.get(req.params.userId ? req.params.userId : req.decoded._id)
     .then(user => {
       res.json(_responseFactory.success(user.toObject()));
     })
@@ -83,7 +83,7 @@ function remove(req, res, next) {
  * @returns {Colors}
  */
 function getColors(req, res, next) {
-  _colorBusiness.get({user: req.params.userId})
+  _colorBusiness.get({user: req.params.userId ? req.params.userId : req.decoded._id})
     .then(colors => {
       res.json(_responseFactory.success(colors));
     })

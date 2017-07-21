@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.route('/')
   /** GET /api/colors - Get color by id */
-  .get(colorCtrl.get)
+  //.get(colorCtrl.get)
 
   /** POST /api/colors - Create new color */
   .post(validate(paramValidation.createColor), colorCtrl.create)
@@ -17,5 +17,9 @@ router.route('/')
 
   /** DELETE /api/colors - Delete color */
   .delete(colorCtrl.remove);
+
+router.route('/:colorId')
+  /** GET /api/colors - Get specific color by id */
+  .get(colorCtrl.get)
 
 module.exports = router;

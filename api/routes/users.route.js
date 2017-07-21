@@ -19,6 +19,10 @@ router.route('/colors')
   /** GET /api/users/colors - Get user colors */
   .get(userCtrl.getColors);
 
+router.route('/:userId')
+  /** GET /api/:userId/users - Get specific user */ 
+  .get(userCtrl.get);
+
 router.route('/:userId/colors')
   /** GET /api/users/:userId/colors - Get specific user colors */
   .get(userCtrl.getColors);

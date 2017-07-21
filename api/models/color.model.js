@@ -7,7 +7,7 @@ const Promise = require('bluebird'),
 const ColorSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   hex: { type: 'String', required: true },
-  name: { type: 'String', required: true },
+  name: { type: 'String' },
   created: { type: Date, default: Date.now }
 });
 

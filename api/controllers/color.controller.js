@@ -11,7 +11,7 @@ const _colorBusiness = new ColorBusiness();
  * @returns {Color}
  */
 function get(req, res, next) {
-  _colorBusiness.getPopulated(req.query._id)
+  _colorBusiness.getPopulated(req.params.colorId)
     .then(color => {
       res.json(_responseFactory.success(color));
     })

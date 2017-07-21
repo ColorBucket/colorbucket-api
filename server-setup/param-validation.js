@@ -48,8 +48,8 @@ module.exports = {
   // CREATE /api/colors
   createColor: {
     body: {
-      hex: Joi.string().required(),
-      name: Joi.string()
+      user: Joi.string().required(),
+      hex: Joi.string().required()
     }
   },
 
