@@ -13,7 +13,7 @@ class TokenBusiness {
     refresh(tokenvm) {
         let today = new Date().getTime();
 
-        tokenvm.expire = new Date(today + 36000000);
+        tokenvm.expire = new Date(today + 2160000000);
         
         return Token.findOneAndUpdate({_id: tokenvm._id}, tokenvm);
     };
@@ -26,7 +26,7 @@ class TokenBusiness {
             let today = new Date().getTime();            
             tokenvm = {
                 user_id: tokenvm,
-                expire: new Date(today + 36000000)
+                expire: new Date(today + 2160000000)
             };
         }
 
