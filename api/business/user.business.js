@@ -17,7 +17,7 @@ class UserBusiness {
     };
 
     update(uservm) {
-        return User.update({_id: uservm._id}, {$set: { name: uservm.name }});
+        return User.update({_id: uservm._id}, {$set: { name: uservm.name, about: uservm.about }});
     };
 
     updatePassword(uservm) {

@@ -3,7 +3,8 @@
 const UserBusiness = require('../business/user.business'),
       ColorBusiness = require('../business/color.business'),
       TokenBusiness = require('../business/token.business'),
-      ResponseFactory = require('../factories/response.factory');
+      ResponseFactory = require('../factories/response.factory')
+      ObjectId = require('mongoose').Types.ObjectId;
 
 const _responseFactory = new ResponseFactory();
 const _userBusiness = new UserBusiness();
@@ -14,9 +15,19 @@ const _colorBusiness = new ColorBusiness();
  * @returns {User}
  */
 function get(req, res, next) {
-  _userBusiness.get(req.params.userId ? req.params.userId : req.decoded._id)
+  var query = {};
+  if(!req.params.userId)
+    query._id = req.decoded._id;
+  else {
+    if(ObjectId.isValid(req.params.userId))
+      query._id = req.params.userId;
+    else
+      query.username = req.params.userId;
+  }
+
+  _userBusiness.get(query)
     .then(user => {
-      res.json(_responseFactory.success(user.toObject()));
+      res.json(_responseFactory.success(user[0] ? user[0].toObject() : null));
     })
     .catch(e => next(e));
 }
@@ -54,6 +65,7 @@ function create(req, res, next) {
 function update(req, res, next) {
   let user = req.body;
   user.name = req.body.name;
+  user.about = req.body.about;
 
   _userBusiness.update(user)
     .then(savedUser => {

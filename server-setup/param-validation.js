@@ -21,6 +21,7 @@ module.exports = {
   updateUser: {
     body: {
       name: Joi.string().required(),
+      about: Joi.string(),
       password: Joi.string()
     }
   },
