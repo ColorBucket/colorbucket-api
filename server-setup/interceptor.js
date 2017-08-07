@@ -11,6 +11,9 @@ function intercept(req, res, next) {
 	if(config.unsecuredRoutes.indexOf(req.path) >= 0)
 		return next();
 
+	if(req.method == "GET" && req.path.indexOf('/api/users/') >= 0)
+		return next();
+
 	if(!req.headers['authorization-token'])
 		return res.status(403).send(_responseFactory.fail(-1, "No Token presented"));
 
