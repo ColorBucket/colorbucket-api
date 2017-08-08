@@ -95,7 +95,7 @@ function remove(req, res, next) {
  * @returns {Colors}
  */
 function getColors(req, res, next) {
-  _colorBusiness.get({user: req.params.userId ? req.params.userId : req.decoded._id})
+  _colorBusiness.get({user: req.params.userId})
     .then(colors => {
       res.json(_responseFactory.success(colors));
     })
