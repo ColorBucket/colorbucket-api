@@ -71,7 +71,17 @@ function signup(req, res, next) {
             })
             .catch(e => next(e));    
         })
-        .catch(e => next(e));
+        .catch(e => {
+          let message = 'Unexpected Error occured, please report on Github!';
+          
+          if(e.message.indexOf('duplicate key') > -1 && e.message.indexOf('email') > -1)
+            message = 'Ops, email already in use!';
+
+          if(e.message.indexOf('duplicate key') > -1 && e.message.indexOf('username') > -1)
+            message = 'Ops, username already taken!';
+
+          return res.json(_responseFactory.fail(-1, message));
+        });
 }
 
 module.exports = { login, signup };
