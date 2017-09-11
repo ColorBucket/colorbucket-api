@@ -22,7 +22,7 @@ function get(req, res, next) {
     if(ObjectId.isValid(req.params.userId))
       query._id = req.params.userId;
     else
-      query.username = {$regex: req.params.userId, $options: "i"};
+      query.username = req.params.userId;
   }
 
   _userBusiness.get(query)
