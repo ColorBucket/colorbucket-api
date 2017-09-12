@@ -83,4 +83,16 @@ function remove(req, res, next) {
     .catch(e => next(e));
 }
 
-module.exports = { get, create, update, remove };
+/**
+ * Get discover colors
+ * @returns {Colors}
+ */
+function getDiscover(req, res, next) {
+  _colorBusiness.getDiscover(req.query.take)
+    .then(colors => {
+      res.json(_responseFactory.success(colors));
+    })
+    .catch(e => next(e));
+}
+
+module.exports = { get, create, update, remove, getDiscover };

@@ -17,7 +17,7 @@ class ColorBusiness {
     getPopulated(params) {
         if(typeof(params) === 'object')
           return Color.find(params)
-            .populate({path : 'user', select :'-password'})
+						.populate({path : 'user', select :'-password'})
             .exec();
             
         return Color.findById(params)
@@ -34,7 +34,19 @@ class ColorBusiness {
     };
 
     remove(id) {
-        return Color.find({_id: id}).remove().exec();;
+        return Color.find({_id: id}).remove().exec();
+    };
+
+    getDiscover(take) {
+        if(!take)
+					take = 6;
+				if(typeof(take) === 'string')
+					take = parseFloat(take);
+					
+				return Color.aggregate().sample(take)
+					.then(colors => {
+						return Color.populate(colors, 'user');
+					});
     };
 }
 

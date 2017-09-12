@@ -18,8 +18,12 @@ router.route('/')
   /** DELETE /api/colors - Delete color */
   .delete(colorCtrl.remove);
 
+router.route('/discover')
+  /** GET /api/colors/discover - Get a batch of new colors to explore */
+  .get(colorCtrl.getDiscover);
+
 router.route('/:colorId')
   /** GET /api/colors - Get specific color by id */
-  .get(colorCtrl.get)
+  .get(colorCtrl.get);
 
 module.exports = router;
