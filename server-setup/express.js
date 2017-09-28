@@ -73,7 +73,7 @@ app.use((err, req, res, next) => {// eslint-disable-line no-unused-vars
   return res.status(500).json({
     success: false,
     code: -1,
-    message: "Internal Server Error",
+    message: "Unexpected error happened. Please report on Github!",
     data: config.env === 'development' ? err.stack : {}
   })
 });

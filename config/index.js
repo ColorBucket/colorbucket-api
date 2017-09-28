@@ -6,6 +6,8 @@ const config = {
   secret: '0a6b944d-d2fb-46fc-a85e-0295c986cd9f',
   db: 'mongodb://localhost:27017/colorbucket',
   unsecuredRoutes: ['/api/signup', '/api/login', '/api/password/recovery', '/api/password/update', '/api/colors/discover'],
+  mailgun_domain: '',
+  mailgun_key: '',
   port: 3010
 };
 

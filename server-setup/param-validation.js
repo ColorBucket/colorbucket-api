@@ -2,7 +2,7 @@ const Joi = require('joi');
 
 module.exports = {
 
-  // UPDATE /api/password/update
+  // UPDATE /password/update
   updatePassword: {
     body: {
       recoveryCode: Joi.string().required(),
@@ -10,14 +10,14 @@ module.exports = {
     }
   },
 
-  // POST /api/password/recovery
+  // POST /password/recovery
   passwordRecovery: {
     body: {
       email: Joi.string().required()
     }
   },
 
-  // UPDATE /api/user
+  // UPDATE /user
   updateUser: {
     body: {
       name: Joi.string().required(),
@@ -26,7 +26,7 @@ module.exports = {
     }
   },
 
-  // POST /api/login
+  // POST /login
   login: {
     body: {
       email: Joi.string().required(),
@@ -34,7 +34,7 @@ module.exports = {
     }
   },
 
-  // POST /api/signup
+  // POST /signup
   signup: {
     body: {
       name: Joi.string().required(),
@@ -46,7 +46,7 @@ module.exports = {
 
 
   ///// Colors
-  // CREATE /api/colors
+  // CREATE /colors
   createColor: {
     body: {
       user: Joi.string().required(),
@@ -54,7 +54,7 @@ module.exports = {
     }
   },
 
-  // UPDATE /api/colors
+  // UPDATE /colors
   updateColor: {
     body: {
       _id: Joi.string().required(),
