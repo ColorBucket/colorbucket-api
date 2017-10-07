@@ -15,6 +15,7 @@
   },
   "scripts": {
     "start": "nodemon server.js",
+    "docker-start": "node server.js",
     "lint": "esw *.js server config --color",
     "test": ""
   },
