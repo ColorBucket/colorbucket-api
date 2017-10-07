@@ -28,5 +28,5 @@ docker run --name colorbucket-api-2-v$actual_version -p $balance_port2:3010 -d c
 docker run --name colorbucket-api-3-v$actual_version -p $balance_port3:3010 -d colorbucket-api:$actual_version
 
 #debug
-echo Press any key to stop
-read OUT_PARAM
+#echo Press any key to stop
+#read OUT_PARAM

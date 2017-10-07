@@ -14,4 +14,4 @@ COPY api/ ./api
 
 EXPOSE 3010
 
-CMD [ "npm", "docker-start" ]
+CMD [ "npm", "start" ]
