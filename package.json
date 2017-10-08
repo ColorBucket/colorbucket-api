@@ -1,7 +1,7 @@
 {
   "name": "colorbucket-api",
   "description": "The Api for the ColorBucket Product",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/colorbucket/colorbucket-api",
   "author": {
     "name": "Gabriel Rodrigues",
